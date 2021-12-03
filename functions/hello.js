@@ -1,5 +1,6 @@
 export const onRequestGet = ({request}) => {
-  return new Response(`Hello, world!\n ${request}`)
+  let {url} = request.json()
+  return new Response(`Hello, world!\n ${url}`)
 }
 
 // POST requests to /filename with a JSON-encoded body would return "Hello, <name>!"
