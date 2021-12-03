@@ -1,4 +1,4 @@
-estexport const onRequestGet = ({request}) => {
+export const onRequestGet = ({request}) => {
   let {url} = request.json()
   return new Response(`Request Url is : ${url}`)
 }
