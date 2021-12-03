@@ -1,6 +1,6 @@
 export const onRequestGet = async (context) => {
 //   let {request} =  context
-  let request = await context.request.json()
+  let request =  context.request
   return new Response(`Request Url is : ${request}`)
 }
 
