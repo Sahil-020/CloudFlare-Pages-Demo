@@ -19,7 +19,7 @@ async function gatherResponse(response) {
 
 export const onRequestGet = async (context) => {
   let {url} = context.request
-  let param = context
+  let {param} = context
 //   let request =  JSON.strigyfy(context.request)
    const init = {
     headers: {
@@ -31,7 +31,7 @@ export const onRequestGet = async (context) => {
    const response = await fetch(urlFetch, init)
   const results = await gatherResponse(response)
   
-  return new Response(`url :${url}\nparam :${JSON.stringify(param)}`)
+  return new Response(`url :${url}\nparam :${JSON.stringify(param)}`,{headers:{"content-type":"application/json"})
 //   return new Response(results)
 }
 
