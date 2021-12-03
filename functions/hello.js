@@ -22,8 +22,9 @@ export const onRequestGet = async ({request}) => {
 //   let request =  JSON.strigyfy(context.request)
    const init = {
     headers: {
-      "Authorization":
-          "Basic c3Nra0hocnYyOjg1NWM2ZTA3LTc5NjctNGM1Yi1iZjliLTBmOWRmZDFhY2FhYg==",
+      "Authorization": `Basic ${CredentialsBase64}`
+//           "Basic c3Nra0hocnYyOjg1NWM2ZTA3LTc5NjctNGM1Yi1iZjliLTBmOWRmZDFhY2FhYg==",
+             
     },
   }
   const urlFetch = "https://es-cluster-kwfl-acumatica-catalog-v7-536qcv.searchbase.io/kwfl-acumatica-catalog-v7-prod-jewelrystyle2testing/_search?q=InventoryDBID : 57126"
