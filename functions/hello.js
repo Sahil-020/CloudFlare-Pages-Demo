@@ -1,7 +1,7 @@
-export const onRequestGet = async (context) => {
-  let data = await context.json()
+export const onRequestGet = async ({request}) => {
+  let {url} = request
 //   let request =  JSON.strigyfy(context.request)
-  return new Response(`Request Url is : ${data}`)
+  return new Response(`Request Url is : ${url}`)
 }
 
 // POST requests to /filename with a JSON-encoded body would return "Hello, <name>!"
