@@ -1,5 +1,5 @@
 export const onRequestGet = (context) => {
   let { param } = context
-
-  return new Response(`The id : ${param}`,{headers:{"content-type":"application/json"}})
+return new Response(`The id : ${JSON.stringify(param)}`)
+//   return new Response(`The id : ${param}`,{headers:{"content-type":"application/json"}})
 }
