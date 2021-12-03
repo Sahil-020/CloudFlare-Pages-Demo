@@ -17,8 +17,9 @@ async function gatherResponse(response) {
 
 
 
-export const onRequestGet = async ({request}) => {
-  let {url} = request
+export const onRequestGet = async (context) => {
+  let {url} = context.request
+  let param = context
 //   let request =  JSON.strigyfy(context.request)
    const init = {
     headers: {
@@ -30,7 +31,7 @@ export const onRequestGet = async ({request}) => {
    const response = await fetch(urlFetch, init)
   const results = await gatherResponse(response)
   
-  return new Response(url)
+  return new Response(`url :${url}\nparam :${param}`)
 //   return new Response(results)
 }
 
