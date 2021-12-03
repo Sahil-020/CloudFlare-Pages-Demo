@@ -39,7 +39,7 @@ export const onRequestGet = async ({request}) => {
 //       },
 //     }
 //   );
-  return new Response(`Request Url is : ${results}`)
+  return new Response(response)
 }
 
 
