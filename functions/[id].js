@@ -1,4 +1,5 @@
-export const onRequestGet = ({request}) => {
+export const onRequestGet = (context) => {
+  let {param} = context
 
-  return new Response(`Welcome`)
+  return new Response(`The id : ${param}`)
 }
