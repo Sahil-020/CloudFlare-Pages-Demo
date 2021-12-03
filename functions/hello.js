@@ -19,7 +19,8 @@ async function gatherResponse(response) {
 
 export const onRequestGet = async (context) => {
   let {url} = context.request
-  let {CredentialsBase64} = context.env
+  let {CredentialsBase64, AppName, AppUrl} = context.env
+  
 //   let request =  JSON.strigyfy(context.request)
    const init = {
     headers: {
@@ -30,7 +31,7 @@ export const onRequestGet = async (context) => {
              
     },
   }
-  const urlFetch = "https://es-cluster-kwfl-acumatica-catalog-v7-536qcv.searchbase.io/kwfl-acumatica-catalog-v7-prod-jewelrystyle2testing/_search?q=InventoryDBID : 57126"
+  const urlFetch = `https://${AppUrl}/${AppName}/_search?q=InventoryDBID : 57126`
    const response = await fetch(urlFetch, init)
   const results = await gatherResponse(response)
   
