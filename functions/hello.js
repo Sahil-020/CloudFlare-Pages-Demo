@@ -18,7 +18,7 @@ async function gatherResponse(response) {
 
 
 export const onRequestGet = async ({request}) => {
-//   let {url} = request
+  let {url} = request
 //   let request =  JSON.strigyfy(context.request)
    const init = {
     headers: {
@@ -26,8 +26,8 @@ export const onRequestGet = async ({request}) => {
           "Basic c3Nra0hocnYyOjg1NWM2ZTA3LTc5NjctNGM1Yi1iZjliLTBmOWRmZDFhY2FhYg==",
     },
   }
-  const url = "https://es-cluster-kwfl-acumatica-catalog-v7-536qcv.searchbase.io/kwfl-acumatica-catalog-v7-prod-jewelrystyle2testing/_search?q=InventoryDBID : 57126"
-   const response = await fetch(url, init)
+  const urlFetch = "https://es-cluster-kwfl-acumatica-catalog-v7-536qcv.searchbase.io/kwfl-acumatica-catalog-v7-prod-jewelrystyle2testing/_search?q=InventoryDBID : 57126"
+   const response = await fetch(urlFetch, init)
   const results = await gatherResponse(response)
   
 //    const appbaseRequest = new Request(
@@ -39,7 +39,7 @@ export const onRequestGet = async ({request}) => {
 //       },
 //     }
 //   );
-  return new Response(JSON.stringify(response))
+  return new Response(results)
 }
 
 
