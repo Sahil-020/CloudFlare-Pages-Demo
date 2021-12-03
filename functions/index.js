@@ -1,6 +1,5 @@
 
 export const onRequestGet = ({request}) => {
 
-  return new Response(`
-  Welcome`)
+  return new Response(`Welcome`)
 }
