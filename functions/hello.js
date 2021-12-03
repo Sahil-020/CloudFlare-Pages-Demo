@@ -17,13 +17,15 @@ async function gatherResponse(response) {
 
 
 
-export const onRequestGet = async ({request}) => {
-  let {url} = request
+export const onRequestGet = async (context) => {
+  let {url} = context.request
+  let {CredentialsBase64} = context.env
 //   let request =  JSON.strigyfy(context.request)
    const init = {
     headers: {
-      "Authorization":  "Basic c3Nra0hocnYyOjg1NWM2ZTA3LTc5NjctNGM1Yi1iZjliLTBmOWRmZDFhY2FhYg==",
-//       `Basic ${CredentialsBase64}`
+      "Authorization":  `Basic ${CredentialsBase64}`
+//       "Basic c3Nra0hocnYyOjg1NWM2ZTA3LTc5NjctNGM1Yi1iZjliLTBmOWRmZDFhY2FhYg==",
+//       
          
              
     },
