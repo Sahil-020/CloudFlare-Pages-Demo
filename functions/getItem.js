@@ -31,7 +31,7 @@ export const onRequestGet = async (context) => {
    const response = await fetch(urlFetch, init)
   const results = await gatherResponse(response)
   
-  return new Response(`url :${url}\nparam :${param}`)
+  return new Response(`url :${url}\nparam :${JSON.strigify(param)}`)
 //   return new Response(results)
 }
 
