@@ -1,4 +1,4 @@
-export const onRequestGet = async ({request}) => {
+export const onRequestGet = async (request) => {
   let { url } = await request.json()
   return new Response(`Request Url is : ${url}`)
 }
