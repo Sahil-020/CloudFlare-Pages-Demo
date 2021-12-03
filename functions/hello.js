@@ -1,5 +1,5 @@
 export const onRequestGet = async ({request}) => {
-  let {url} = await request.json()
+  let { url } = await request.json()
   return new Response(`Request Url is : ${url}`)
 }
 
