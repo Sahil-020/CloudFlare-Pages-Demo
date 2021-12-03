@@ -39,7 +39,7 @@ export const onRequestGet = async ({request}) => {
 //       },
 //     }
 //   );
-  return new Response(JSON.Stringify(response))
+  return new Response(JSON.stringify(response))
 }
 
 
