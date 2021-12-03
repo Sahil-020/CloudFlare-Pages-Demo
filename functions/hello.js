@@ -18,7 +18,7 @@ async function gatherResponse(response) {
 
 
 export const onRequestGet = async ({request}) => {
-  let {url} = request
+//   let {url} = request
 //   let request =  JSON.strigyfy(context.request)
    const init = {
     headers: {
