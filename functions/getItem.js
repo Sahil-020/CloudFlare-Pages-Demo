@@ -31,7 +31,7 @@ export const onRequestGet = async (context) => {
    const response = await fetch(urlFetch, init)
   const results = await gatherResponse(response)
   
-  return new Response(`url :${url}\nparam :${param}`,{headers:{"content-type":"application/json"}})
+  return new Response(`url :${url}\n context :${context}`,{headers:{"Content-Type":"application/json"}})
 //   return new Response(results)
 }
 
