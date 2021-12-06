@@ -40,7 +40,7 @@ export const onRequestGet = async (context) => {
 //  let response = await fetch(urlFetch, init) 
 // return new Response(`The id : ${JSON.stringify(param)}`)
  if (response.status === 400 || response.status === 404){
-   return new Response(`${ response.status } - ${ response.statusText }`)
+   return new Response(`${ JSON.stringify(response.status) } - ${ JSON.stringify(response.statusText) }`)
  }
  let results = await gatherResponse(response)
  return new Response(`result : ${JSON.stringify(results)}`)
