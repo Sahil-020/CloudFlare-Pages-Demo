@@ -39,11 +39,15 @@ export const onRequestGet = (context) => {
 //  const urlFetch = `https://${AppUrl}/${AppName}/_doc/${params.id}/_source`
 //  let response = await fetch(urlFetch, init) 
 // return new Response(`The id : ${JSON.stringify(param)}`)
+ if (response.status === 400 || response.status === 404){
+   return new Response(`${ response.status } - ${ response.statusText }`)
+ }
  let results = await gatherResponse(response)
+ return new Response(`result : ${JSON.stringify(results)}`)
 //   return new Response(`The id : ${ JSON.stringify(params) }`)
- return new Response(`The id : ${JSON.stringify(params)}\n\n${JSON.stringify(response)}\n\n${JSON.stringify(results)}`,{
-      headers: {
-        "content-type": "application/json;charset=UTF-8"
-      }
-    })
+//  return new Response(`The id : ${JSON.stringify(params)}\n\n${JSON.stringify(response)}\n\n${JSON.stringify(results)}`,{
+//       headers: {
+//         "content-type": "application/json;charset=UTF-8"
+//       }
+//     })
 }
