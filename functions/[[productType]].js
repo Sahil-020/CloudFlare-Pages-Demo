@@ -40,7 +40,7 @@ export const onRequestGet = async (context) => {
    return new Response(`${ JSON.stringify(response.status) } - ${ JSON.stringify(response.statusText) }`)
  }
  let results = await gatherResponse(response)
- return new Response(`The id : ${ JSON.stringify(productType) }\n\nresult : ${JSON.stringify(results)}`)
+ return new Response(`The id : ${ JSON.stringify(productType) }\n\nresult : ${results}`)
 //  return new Response(`The id : ${JSON.stringify(params)}\n\n${JSON.stringify(response)}\n\n${JSON.stringify(results)}`,{
 //       headers: {
 //         "content-type": "application/json;charset=UTF-8"
