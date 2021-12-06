@@ -44,6 +44,10 @@ export const onRequestGet = async (context) => {
 //     }
 //   );
 
-return new Response(`The id : ${JSON.stringify(params)}\n\n${JSON.stringify(response)}\n\n${JSON.stringify(results)}`)
+return new Response(`The id : ${JSON.stringify(params)}\n\n${JSON.stringify(response)}\n\n${JSON.stringify(results)}`,{
+      headers: {
+        "content-type": "application/json;charset=UTF-8"
+      }
+    })
 //   return new Response(`The id : ${params}`,{ headers:{ "content-type":"application/json" } })
 }
