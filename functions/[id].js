@@ -15,7 +15,8 @@ async function gatherResponse(response) {
   }
 }
 export const onRequestGet = async (context) => {
-  let { params } = context
+//   let { params } = context
+  let params = JSON.stringify(context.params, null, 2)
    let {CredentialsBase64, AppName, AppUrl} = context.env
   
 //   let request =  JSON.strigyfy(context.request)
