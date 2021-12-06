@@ -14,7 +14,7 @@ async function gatherResponse(response) {
     return response.text()
   }
 }
-export const onRequestGet = (context) => {
+export const onRequestGet = async (context) => {
   let { params } = context
    let {CredentialsBase64, AppName, AppUrl} = context.env
   
