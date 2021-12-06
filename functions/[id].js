@@ -42,6 +42,6 @@ export const onRequestGet = async (context) => {
 //     }
 //   );
 
-return new Response(`The id : ${JSON.stringify(params)}\n\n${results}`)
+return new Response(`The id : ${JSON.stringify(params)}\n\n${JSON.stringify(response)}\n\n${results}`)
 //   return new Response(`The id : ${params}`,{ headers:{ "content-type":"application/json" } })
 }
