@@ -29,9 +29,11 @@ export const onRequestGet = async (context) => {
     },
   }
   const urlFetch = `https://${AppUrl}/${AppName}/_search?q=InventoryDBID : ${params.id}`
-   const response = await fetch(urlFetch, init)
+   let response = await fetch(urlFetch, init)
+   response = JSON.stringify(response, null, 2)
   // let updatedResponse =  await response.json()
-  const results = await gatherResponse(response)
+  let results = await gatherResponse(response)
+  results = JSON.stringify(results, null, 2)
   //let updatedResults = await results.json()
   
 //    const appbaseRequest = new Request(
