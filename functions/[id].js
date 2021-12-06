@@ -29,7 +29,8 @@ export const onRequestGet = async (context) => {
              
     },
   }
-  const urlFetch = `https://${AppUrl}/${AppName}/_search?q=InventoryDBID : ${params.id}`
+//   const urlFetch = `https://${AppUrl}/${AppName}/_search?q=InventoryDBID : ${params.id}`
+   const urlFetch = `https://${AppUrl}/${AppName}/_doc/${params.id}/_source`
    let response = await fetch(urlFetch, init)
 //    response = JSON.stringify(response, null, 2)
 //   console.log("response :",response)
