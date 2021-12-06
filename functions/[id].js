@@ -30,9 +30,9 @@ export const onRequestGet = async (context) => {
   }
   const urlFetch = `https://${AppUrl}/${AppName}/_search?q=InventoryDBID : ${params.id}`
    const response = await fetch(urlFetch, init)
-   let updatedResponse =  await response.json()
+  // let updatedResponse =  await response.json()
   const results = await gatherResponse(response)
-  let updatedResults = await results.json()
+  //let updatedResults = await results.json()
   
 //    const appbaseRequest = new Request(
 //     "https://es-cluster-kwfl-acumatica-catalog-v7-536qcv.searchbase.io/kwfl-acumatica-catalog-v7-prod-jewelrystyle2testing/_search?q=InventoryDBID : 57126",
