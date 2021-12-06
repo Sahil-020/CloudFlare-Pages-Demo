@@ -28,7 +28,7 @@ export const onRequestGet = (context) => {
              
     },
   }
-  const urlFetch = `https://${AppUrl}/${AppName}/_search?q=InventoryDBID : 57126`
+  const urlFetch = `https://${AppUrl}/${AppName}/_search?q=InventoryDBID : ${params.id}`
    const response = await fetch(urlFetch, init)
   const results = await gatherResponse(response)
   
