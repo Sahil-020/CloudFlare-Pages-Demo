@@ -16,7 +16,7 @@ async function gatherResponse(response) {
 }
 export const onRequestGet = (context) => {
  let { params } = context
- let {CredentialsBase64, AppName, AppUrl} = context.env
+ let {CredentialsBase64, JewelrySerialApp, AppUrl} = context.env
  var myHeaders = new Headers({
     'Content-Type': 'application/json'
  });
