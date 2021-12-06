@@ -15,19 +15,35 @@ async function gatherResponse(response) {
   }
 }
 export const onRequestGet = (context) => {
- let { params } = context
- let {CredentialsBase64, JewelrySerialApp, AppUrl} = context.env
+ let { productType } = context.params
+ let {CredentialsBase64, JewelrySerialApp,DiamondSerialApp,GemstoneSerialApp, AppUrl} = context.env
+ const init = {
+    headers: {
+      "Authorization":  `Basic ${ CredentialsBase64 }`
+    },
+  }
  var myHeaders = new Headers({
     'Content-Type': 'application/json'
  });
+ let response
+ if(producType[1] === J){
+   const urlFetch = `https://${AppUrl}/${JewelrySerialApp}/_doc/${productType[0]}/_source`
+   response = await fetch(urlFetch, init) 
+ } else if(producType[1] === D){
+   const urlFetch = `https://${AppUrl}/${DiamondSerialApp}/_doc/${productType[0]}/_source`
+   response = await fetch(urlFetch, init) 
+ }else if(producType[1] === G){
+   const urlFetch = `https://${AppUrl}/${GemstoneSerialApp}/_doc/${productType[0]}/_source`
+   response = await fetch(urlFetch, init) 
+ }
 //  const urlFetch = `https://${AppUrl}/${AppName}/_doc/${params.id}/_source`
 //  let response = await fetch(urlFetch, init) 
 // return new Response(`The id : ${JSON.stringify(param)}`)
-//  let results = await gatherResponse(response)
-  return new Response(`The id : ${ JSON.stringify(params) }`)
-//  return new Response(`The id : ${JSON.stringify(params)}\n\n${JSON.stringify(response)}\n\n${JSON.stringify(results)}`,{
-//       headers: {
-//         "content-type": "application/json;charset=UTF-8"
-//       }
-//     })
+ let results = await gatherResponse(response)
+//   return new Response(`The id : ${ JSON.stringify(params) }`)
+ return new Response(`The id : ${JSON.stringify(params)}\n\n${JSON.stringify(response)}\n\n${JSON.stringify(results)}`,{
+      headers: {
+        "content-type": "application/json;charset=UTF-8"
+      }
+    })
 }
