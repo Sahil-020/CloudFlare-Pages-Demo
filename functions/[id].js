@@ -15,8 +15,8 @@ async function gatherResponse(response) {
   }
 }
 export const onRequestGet = async (context) => {
-//   let { params } = context
-  let params = JSON.stringify(context.params, null, 2)
+  let { params } = context
+//   let params = JSON.stringify(context.params, null, 2)
    let {CredentialsBase64, AppName, AppUrl} = context.env
   
 //   let request =  JSON.strigyfy(context.request)
@@ -31,12 +31,12 @@ export const onRequestGet = async (context) => {
   }
   const urlFetch = `https://${AppUrl}/${AppName}/_search?q=InventoryDBID : ${params.id}`
    let response = await fetch(urlFetch, init)
-   response = JSON.stringify(response, null, 2)
-  console.log("response :",response)
+//    response = JSON.stringify(response, null, 2)
+//   console.log("response :",response)
   // let updatedResponse =  await response.json()
   let results = await gatherResponse(response)
-  results = JSON.stringify(results, null, 2)
-   console.log("results :",results)
+//   results = JSON.stringify(results, null, 2)
+//    console.log("results :",results)
   //let updatedResults = await results.json()
   
 //    const appbaseRequest = new Request(
@@ -49,15 +49,15 @@ export const onRequestGet = async (context) => {
 //     }
 //   );
 
-// return new Response(`The id : ${JSON.stringify(params)}\n\n${JSON.stringify(response)}\n\n${JSON.stringify(results)}`,{
-//       headers: {
-//         "content-type": "application/json;charset=UTF-8"
-//       }
-//     })
-  return new Response(`The id : ${params}\n\n${response}\n\n${results}`,{
+return new Response(`The id : ${JSON.stringify(params)}\n\n${JSON.stringify(response)}\n\n${JSON.stringify(results)}`,{
       headers: {
         "content-type": "application/json;charset=UTF-8"
       }
     })
+//   return new Response(`The id : ${params}\n\n${response}\n\n${results}`,{
+//       headers: {
+//         "content-type": "application/json;charset=UTF-8"
+//       }
+//     })
 //   return new Response(`The id : ${params}`,{ headers:{ "content-type":"application/json" } })
 }
