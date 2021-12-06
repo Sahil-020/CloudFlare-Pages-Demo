@@ -26,13 +26,13 @@ export const onRequestGet = async (context) => {
     'Content-Type': 'application/json'
  });
  let response
- if(producType[1] === J){
+ if(producType[1] === "J"){
    const urlFetch = `https://${AppUrl}/${JewelrySerialApp}/_doc/${productType[0]}/_source`
    response = await fetch(urlFetch, init) 
- } else if(producType[1] === D){
+ } else if(producType[1] === "D"){
    const urlFetch = `https://${AppUrl}/${DiamondSerialApp}/_doc/${productType[0]}/_source`
    response = await fetch(urlFetch, init) 
- }else if(producType[1] === G){
+ }else if(producType[1] === "G"){
    const urlFetch = `https://${AppUrl}/${GemstoneSerialApp}/_doc/${productType[0]}/_source`
    response = await fetch(urlFetch, init) 
  }
