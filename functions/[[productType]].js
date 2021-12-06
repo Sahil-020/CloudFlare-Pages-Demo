@@ -35,7 +35,10 @@ export const onRequestGet = async (context) => {
  }else if(productType[1] === "G"){
    const urlFetch = `https://${AppUrl}/${GemstoneSerialApp}/_doc/${productType[0]}/_source`
    response = await fetch(urlFetch, init) 
+ }else{
+  return new Response(`Invalid Inputs.`)
  }
+  
  if (response.status === 400 || response.status === 404){
    return new Response(`${ JSON.stringify(response.status) } - ${ JSON.stringify(response.statusText) }`)
  }
