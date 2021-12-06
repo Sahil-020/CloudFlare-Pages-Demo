@@ -21,7 +21,7 @@ export const onRequestGet = (context) => {
 //   let request =  JSON.strigyfy(context.request)
    const init = {
     headers: {
-      "Authorization":  `Basic ${CredentialsBase64}`
+      "Authorization":  `Basic ${ CredentialsBase64 }`
 //       "Basic c3Nra0hocnYyOjg1NWM2ZTA3LTc5NjctNGM1Yi1iZjliLTBmOWRmZDFhY2FhYg==",
 //       
          
