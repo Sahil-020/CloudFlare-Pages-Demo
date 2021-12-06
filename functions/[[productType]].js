@@ -14,7 +14,7 @@ async function gatherResponse(response) {
     return response.text()
   }
 }
-export const onRequestGet = (context) => {
+export const onRequestGet = async (context) => {
  let { productType } = context.params
  let {CredentialsBase64, JewelrySerialApp,DiamondSerialApp,GemstoneSerialApp, AppUrl} = context.env
  const init = {
