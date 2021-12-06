@@ -17,7 +17,7 @@ async function gatherResponse(response) {
 export const onRequestGet = async (context) => {
   let { params } = context
 //   let params = JSON.stringify(context.params, null, 2)
-   let {CredentialsBase64, AppName, AppUrl} = context.env
+   let {CredentialsBase64, JewelrySerialApp, AppUrl} = context.env
   
 //   let request =  JSON.strigyfy(context.request)
    const init = {
@@ -30,7 +30,7 @@ export const onRequestGet = async (context) => {
     },
   }
 //   const urlFetch = `https://${AppUrl}/${AppName}/_search?q=InventoryDBID : ${params.id}`
-   const urlFetch = `https://${AppUrl}/${AppName}/_doc/${params.id}/_source`
+   const urlFetch = `https://${AppUrl}/${JewelrySerialApp}/_doc/${params.id}/_source`
    let response = await fetch(urlFetch, init)
 //    response = JSON.stringify(response, null, 2)
 //   console.log("response :",response)
