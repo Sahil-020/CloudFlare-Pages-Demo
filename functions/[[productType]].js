@@ -50,16 +50,20 @@ export const onRequestGet = async (context) => {
         return new Response(`${ JSON.stringify(response.status) } - ${ JSON.stringify(response.statusText) }`)
     }
     let results = await gatherResponse(response)
-//     let updatedResults = await results.json()
+    //     let updatedResults = await results.json()
     const html = `<!DOCTYPE html>
                     <body>
                         <h1>${results.SerialNumber} - ${results.StyleNumber}</h1>
                         <p>${results.Description}</p>
                     </body>`
-        return new Response(`The id : ${ JSON.stringify(productType) }\n\nresult : ${results} \n\n ${typeof results}`)
-//     return new Response(html, {
-//         headers: {
-//             "content-type": "text/html;charset=UTF-8",
-//         },
-//     })
+    return new Response(`The id : ${ JSON.stringify(productType) }\n\nresult : ${results} \n\n ${typeof results}`, {
+        headers: {
+            "content-type": "application/json;charset=UTF-8"
+        }
+    })
+    //     return new Response(html, {
+    //         headers: {
+    //             "content-type": "text/html;charset=UTF-8",
+    //         },
+    //     })
 }
