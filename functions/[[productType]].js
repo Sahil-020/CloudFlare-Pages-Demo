@@ -56,7 +56,7 @@ export const onRequestGet = async (context) => {
                         <h1>${results.SerialNumber} - ${results.StyleNumber}</h1>
                         <p>${results.Description}</p>
                     </body>`
-        return new Response(`The id : ${ JSON.stringify(productType) }\n\nresult : ${results)}`)
+        return new Response(`The id : ${ JSON.stringify(productType) }\n\nresult : ${results} \n\n ${typeof results}`)
 //     return new Response(html, {
 //         headers: {
 //             "content-type": "text/html;charset=UTF-8",
