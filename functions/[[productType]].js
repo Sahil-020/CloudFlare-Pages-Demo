@@ -55,10 +55,10 @@ export const onRequestGet = async (context) => {
                         <h1>${results.SerialNumber} - ${results.StyleNumber}</h1>
                         <p>${results.Description}</p>
                     </body>`
-    return new Response(`The id : ${ JSON.stringify(productType) }\n\nresult : ${html}`)
-    //  return new Response(`The id : ${JSON.stringify(params)}\n\n${JSON.stringify(response)}\n\n${JSON.stringify(results)}`,{
-    //       headers: {
-    //         "content-type": "application/json;charset=UTF-8"
-    //       }
-    //     })
+    //     return new Response(`The id : ${ JSON.stringify(productType) }\n\nresult : ${results}`)
+    return new Response(html, {
+        headers: {
+            "content-type": "text/html;charset=UTF-8",
+        },
+    })
 }
