@@ -13,11 +13,6 @@ async function gatherResponse(response) {
 }
 
 export const onRequestGet = async (context) => {
-  const init = {
-    headers: {
-      Authorization: `Basic ${CredentialsBase64}`,
-    },
-  };
   let { params } = context;
   let {
     CredentialsBase64,
@@ -27,6 +22,11 @@ export const onRequestGet = async (context) => {
     AppUrl,
   } = context.env;
   let appNameData = [JewelrySerialApp, DiamondSerialApp, GemstoneSerialApp];
+  const init = {
+    headers: {
+      Authorization: `Basic ${CredentialsBase64}`,
+    },
+  };
   let response;
   for (let i = 0; i < appNameData.length; i++) {
     // appName = appNameData[i];
@@ -37,8 +37,8 @@ export const onRequestGet = async (context) => {
     }
     response = await fetch(urlFetch, init);
     if (response.status === 200) {
-      console.log("response :", response);
-      console.log(response.status, " - ", response.statusText);
+//       console.log("response :", response);
+//       console.log(response.status, " - ", response.statusText);
       let results = await gatherResponse(response);
       return new Response(
         `The id : ${JSON.stringify(params)}\n\n${JSON.stringify(
