@@ -50,10 +50,11 @@ export const onRequestGet = async (context) => {
         return new Response(`${ JSON.stringify(response.status) } - ${ JSON.stringify(response.statusText) }`)
     }
     let results = await gatherResponse(response)
+    let updatedResults = await results.json()
     const html = `<!DOCTYPE html>
                     <body>
-                        <h1>${results.SerialNumber} - ${results.StyleNumber}</h1>
-                        <p>${results.Description}</p>
+                        <h1>${updatedResults.SerialNumber} - ${updatedResults.StyleNumber}</h1>
+                        <p>${updatedResults.Description}</p>
                     </body>`
     //     return new Response(`The id : ${ JSON.stringify(productType) }\n\nresult : ${results}`)
     return new Response(html, {
