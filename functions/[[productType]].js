@@ -100,10 +100,6 @@ export const onRequestGet = async (context) => {
                           <img
                              style="width:50%;"
                              src=${handleImage(updatedResults)}
-                             onError=${(event) => {
-                               event.target.src =
-                                 "https://cdn.kwiat.com/apps/kwiat-elastic-search/icons/Missing-Images-Final-100x75px-01.svg";
-                             }}
                            />
                         </div>
                         ${
@@ -141,15 +137,23 @@ export const onRequestGet = async (context) => {
                           updatedResults.Clarity ||
                           updatedResults.ColorCarats
                             ? `<div>${
-                                item.DiamondCarats
-                                  ? ` ${item.DiamondCarats} carats,`
+                                updatedResults.DiamondCarats
+                                  ? ` ${updatedResults.DiamondCarats} carats,`
                                   : ""
                               }
-                            ${item.Color ? ` ${item.Color} color,` : ""}
-                            ${item.Clarity ? ` ${item.Clarity} clarity.` : ""} 
                             ${
-                              item.ColorCarats
-                                ? `${item.ColorCarats} carats.`
+                              updatedResults.Color
+                                ? ` ${updatedResults.Color} color,`
+                                : ""
+                            }
+                            ${
+                              updatedResults.Clarity
+                                ? ` ${updatedResults.Clarity} clarity.`
+                                : ""
+                            } 
+                            ${
+                              updatedResults.ColorCarats
+                                ? `${updatedResults.ColorCarats} carats.`
                                 : ""
                             }</div>`
                             : ``
