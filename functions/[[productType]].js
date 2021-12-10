@@ -98,7 +98,9 @@ export const onRequestGet = async (context) => {
     let results = await gatherResponse(response);
     let updatedResults = JSON.parse(results);
     if (productType[1] === "D" && updatedResults.LabReportNbr) {
-        return Response.redirect(`https://cdn.kwiat.com/kwiat/certs-pdfs/${updatedResults.LabReportNbr}.pdf`, 301)
+        const destinationURL = `https://cdn.kwiat.com/kwiat/certs-pdfs/${updatedResults.LabReportNbr}.pdf`
+        const statusCode = 301
+        return Response.redirect(destinationURL, 301)
     }
     const html = `<!DOCTYPE html>
                   <body>
