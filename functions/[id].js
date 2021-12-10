@@ -90,72 +90,29 @@ export const onRequestGet = async (context) => {
                 const statusCode = 301
                 return Response.redirect(destinationURL, 301)
             }
+            var formatter = new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+
+                // These options are needed to round to whole numbers if that's what you want.
+                //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+                //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+            });
             const html = `<!DOCTYPE html>
                 <body>
-                  <div style="text-align: left; width:505px;" >
-                    <div style="text-align:center;max-width:600px;max-height: 600px;" >
+                  <div style="text-align: left; width:100%;" >
+                    <div style="text-align:center;max-width:100%;font-size:40px">
                       <div style="width:100%;">
                         <img
-                           style="width:50%;"
+                           style="width:80%;"
                            src=${handleImage(updatedResults)}
                          />
                       </div>
-                      ${
-                        updatedResults.Description
-                          ? `<div style="margin-top:10px;">${updatedResults.Description}</div>`
-                          : ``
-                      }
-                      ${
-                        updatedResults.SerialNumber ||
-                        updatedResults.StyleNumber
-                          ? `<div>
-                          ${
-                            updatedResults.StyleNumber &&
-                            updatedResults.SerialNumber
-                              ? updatedResults.StyleNumber +
-                                " | " +
-                                updatedResults.SerialNumber
-                              : updatedResults.StyleNumber
-                              ? updatedResults.StyleNumber
-                              : updatedResults.SerialNumber
-                              ? updatedResults.SerialNumber
-                              : ``
-                          }
-                        </div>`
-                          : ``
-                      }
-                      ${
-                        updatedResults.Metal
-                          ? `<div>${updatedResults.Metal}</div>`
-                          : ``
-                      }
-                      ${
-                        updatedResults.DiamondCarats ||
-                        updatedResults.Color ||
-                        updatedResults.Clarity ||
-                        updatedResults.ColorCarats
-                          ? `<div>${
-                              updatedResults.DiamondCarats
-                                ? ` ${updatedResults.DiamondCarats} carats,`
-                                : ""
-                            }
-                          ${
-                            updatedResults.Color
-                              ? ` ${updatedResults.Color} color,`
-                              : ""
-                          }
-                          ${
-                            updatedResults.Clarity
-                              ? ` ${updatedResults.Clarity} clarity.`
-                              : ""
-                          } 
-                          ${
-                            updatedResults.ColorCarats
-                              ? `${updatedResults.ColorCarats} carats.`
-                              : ""
-                          }</div>`
-                          : ``
-                      }
+                      <div> Serial Number : ${
+                        updatedResults.SerialNumber
+                      } </div>
+                      <div>Inventory ID : ${updatedResults.InventoryID}</div>
+                      <div>Retail Price : ${formatter.format(updatedResults.RetailPrice)}</div> 
                     </div>
                   </div>
                 </body>`;
