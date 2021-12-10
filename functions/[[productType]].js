@@ -94,11 +94,11 @@ export const onRequestGet = async (context) => {
       )}`
         );
     }
-    
+
     let results = await gatherResponse(response);
     let updatedResults = JSON.parse(results);
-    if (productType[1] === "D" && updatedResults.Giapdfurl) {
-        return Response.redirect(updatedResults.Giapdfurl, 200)
+    if (productType[1] === "D" && updatedResults.LabReportNbr) {
+        return Response.redirect(`https://cdn.kwiat.com/kwiat/certs-pdfs/{updatedResults.LabReportNbr}.pdf`, 200)
     }
     const html = `<!DOCTYPE html>
                   <body>
