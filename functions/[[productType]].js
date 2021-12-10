@@ -94,8 +94,8 @@ export const onRequestGet = async (context) => {
       )}`
         );
     }
-    if (productType[1] === "D")
-        let results = await gatherResponse(response);
+    
+    let results = await gatherResponse(response);
     let updatedResults = JSON.parse(results);
     if (productType[1] === "D" && updatedResults.Giapdfurl) {
         return Response.redirect(updatedResults.Giapdfurl, 200)
