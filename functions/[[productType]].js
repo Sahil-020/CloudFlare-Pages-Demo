@@ -112,11 +112,11 @@ export const onRequestGet = async (context) => {
     });
     const html = `<!DOCTYPE html>
                 <body>
-                  <div style="text-align: left; width:505px;" >
-                    <div style="text-align:center;max-width:600px;max-height: 600px;" >
+                  <div style="text-align: left; width:100%;" >
+                    <div style="text-align:center;max-width:100%;font-size:40px">
                       <div style="width:100%;">
                         <img
-                           style="width:50%;"
+                           style="width:80%;"
                            src=${handleImage(updatedResults)}
                          />
                       </div>
